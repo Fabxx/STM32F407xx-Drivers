@@ -59,9 +59,9 @@ typedef struct
 
 #define DRV_FLASH_BASEADDR              0x08000000U
 #define DRV_ROM                         0x1FFF0000U // System Memory Address
-#define DRV_SRAM                        DRV_SRAM1_BASEADDR
 #define DRV_SRAM1_BASEADDR              0x20000000U
 #define DRV_SRAM2_BASEADDR              0x2001C000U
+#define DRV_SRAM                        DRV_SRAM1_BASEADDR
 
 #define DRV_AHB1PERIPH_BASE             0x40020000U
 
