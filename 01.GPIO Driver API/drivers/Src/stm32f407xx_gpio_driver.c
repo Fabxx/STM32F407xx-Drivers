@@ -168,7 +168,7 @@ void GPIO_DeInit(GPIO_Handle_t *pGPIOHandle)
  *
  * @Note: none.
  */
-uint8_t GPIO_ReadInputPin(GPIO_Handle_t *pGPIOHandle)
+volatile uint8_t GPIO_ReadInputPin(GPIO_Handle_t *pGPIOHandle)
 {
 	uint8_t value = (uint8_t)(pGPIOHandle->pGPIOx->IDR >> pGPIOHandle->PinConfig.PinNumber) & 0x00000001;
 	return value;
@@ -187,7 +187,7 @@ uint8_t GPIO_ReadInputPin(GPIO_Handle_t *pGPIOHandle)
  *
  * @Note: none.
  */
-uint16_t GPIO_ReadInputPort(GPIO_Handle_t *pGPIOHandle)
+volatile uint16_t GPIO_ReadInputPort(GPIO_Handle_t *pGPIOHandle)
 {
 	uint16_t value = (uint16_t)pGPIOHandle->pGPIOx->IDR;
 	return value;
@@ -230,22 +230,6 @@ void GPIO_WriteOutputPort(GPIO_Handle_t *pGPIOHandle, uint16_t value)
 	if (value == ENABLE) {
 		pGPIOHandle->pGPIOx->ODR = value;
 	}
-}
-
-
-/*
- * @Brief: Read value of output data register pin
- *
- * @Parameter: pointer to GPIO handler
- *
- * @return: 0 or 1.
- *
- * @Note: none.
- */
-uint8_t GPIO_ReadOutputPin(GPIO_Handle_t *pGPIOHandle)
-{
-	uint8_t value = (uint8_t)(pGPIOHandle->pGPIOx->ODR >> pGPIOHandle->PinConfig.PinNumber) & 0x00000001;
-	return value;
 }
 
 /*
