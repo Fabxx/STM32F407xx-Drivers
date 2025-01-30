@@ -168,7 +168,7 @@ void GPIO_DeInit(GPIO_Handle_t *pGPIOHandle)
  *
  * @Note: none.
  */
-volatile uint8_t GPIO_ReadInputPin(GPIO_Handle_t *pGPIOHandle)
+uint8_t GPIO_ReadInputPin(GPIO_Handle_t *pGPIOHandle)
 {
 	uint8_t value = (uint8_t)(pGPIOHandle->pGPIOx->IDR >> pGPIOHandle->PinConfig.PinNumber) & 0x00000001;
 	return value;
@@ -187,7 +187,7 @@ volatile uint8_t GPIO_ReadInputPin(GPIO_Handle_t *pGPIOHandle)
  *
  * @Note: none.
  */
-volatile uint16_t GPIO_ReadInputPort(GPIO_Handle_t *pGPIOHandle)
+uint16_t GPIO_ReadInputPort(GPIO_Handle_t *pGPIOHandle)
 {
 	uint16_t value = (uint16_t)pGPIOHandle->pGPIOx->IDR;
 	return value;
